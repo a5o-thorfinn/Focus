@@ -62,7 +62,14 @@
             <button id="finish-break-btn">BACK TO FOCUS</button>
         </div>
     </div>
-
+ <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./pwabuilder-sw.js')
+        .catch(error => console.error('Service Worker registration failed:', error));
+    });
+  }
+</script>
     <script src="script.js"></script>
 </body>
 </html>
