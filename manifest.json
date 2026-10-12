@@ -13,5 +13,42 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "./break.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Focus timer on desktop"
+    },
+    {
+      "src": "./counting.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Focus timer on desktop"
+    },
+    {
+      "src": "./ui.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Focus timer on desktop"
+    },
+    {
+      "src": "./settings.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Focus timer on desktop"
+    },
+    {
+      "src": "./settings2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Focus timer on desktop"
+    }
   ]
 }
