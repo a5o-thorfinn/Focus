@@ -242,11 +242,3 @@ function resetToFocusPage() {
 
     showPage('focus');
 }
-// تسجيل الـ Service Worker لتفعيل الـ PWA
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/Focus/sw.js')
-      .then((reg) => console.log('Service Worker Registered!', reg))
-      .catch((err) => console.log('Service Worker Registration Failed!', err));
-  });
-}
