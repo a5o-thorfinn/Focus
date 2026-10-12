@@ -1,0 +1,17 @@
+{
+  "name": "Focus & Break Timer",
+  "short_name": "Focus",
+  "description": "Focus timer with break reminders.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#343434",
+  "theme_color": "#343434",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
