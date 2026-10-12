@@ -1,0 +1,125 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+    font-family: sans-serif;
+}
+
+#focus-page, #break-page {
+    color: aliceblue;
+    text-align: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 50px;
+    position: relative; /* ضروري عشان الأزرار تثبت في زوايا الصفحة */
+}
+
+#break-page {
+    background-color: #1a3a3a;
+}
+
+#timer, #break-timer {
+    font-size: 66px;
+    margin: 20px 0;
+}
+
+#break-timer {
+    color: #a8ffb2;
+}
+
+button {
+    background-color: #ffffff;
+    color: #1e1e1e;
+    border: none;
+    padding: 12px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #adadad;
+}
+
+/* زر الترس في أعلى اليمين */
+#settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    font-size: 28px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* زر إعادة الضبط في أعلى الشمال */
+#reset-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    font-size: 24px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+/* تصميم نافذة الـ Pop-up (Modal) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #3b3b3b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: left;
+    color: aliceblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #2b2b2b;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#break-example {
+    font-size: 14px;
+    color: #a8ffb2;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+#close-settings-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#close-settings-btn:hover {
+    background-color: #45a049;
+}
