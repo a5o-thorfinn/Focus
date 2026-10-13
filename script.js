@@ -35,6 +35,7 @@ let isPaused = false;
 // المتغيرات الخاصة بالبريك والإعدادات
 let breakInterval = null;
 let breakSeconds = 0;
+let breakEndTime = 0;
 let isBreakPaused = false;
 let currentBreakRatio = parseFloat(breakRatioSelect.value); // القيمة الافتراضية للنسبة (20% أو غيرها)
 
@@ -189,33 +190,42 @@ stopBtn.addEventListener('click', function() {
 });
 
 // دالة تشغيل العداد التنازلي للبريك (بالثواني العادية)
-function startBreakTimer() {
+function updateBreakTimer() {
+    breakSeconds = Math.max(0, Math.ceil((breakEndTime - Date.now()) / 1000));
     breakTimerDisplay.textContent = formatBreakTime(breakSeconds);
 
-    breakInterval = setInterval(() => {
-        if (breakSeconds > 0) {
-            breakSeconds--;
-            breakTimerDisplay.textContent = formatBreakTime(breakSeconds);
-        } else {
-            clearInterval(breakInterval);
-            breakTimerDisplay.textContent = "00:00:00";
-            playAlertSound(); // تشغيل صوت التنبيه فور انتهاء البريك
-            alert("Break is over! Time to focus again.");
-            resetToFocusPage();
-        }
-    }, 1000);
+    if (breakSeconds === 0) {
+        clearInterval(breakInterval);
+        breakInterval = null;
+        playAlertSound();
+        alert("Break is over! Time to focus again.");
+        resetToFocusPage();
+    }
+}
+
+function startBreakTimer() {
+    clearInterval(breakInterval);
+    breakEndTime = Date.now() + breakSeconds * 1000;
+    updateBreakTimer();
+
+    if (breakSeconds > 0) {
+        breakInterval = setInterval(updateBreakTimer, 250);
+    }
 }
 
 // زر الإيقاف المؤقت/الاستئناف للبريك (Break Pause)
 breakPauseBtn.addEventListener('click', function() {
     if (!isBreakPaused) {
+        breakSeconds = Math.max(0, Math.ceil((breakEndTime - Date.now()) / 1000));
         clearInterval(breakInterval);
+        breakInterval = null;
+        breakTimerDisplay.textContent = formatBreakTime(breakSeconds);
         breakPauseBtn.textContent = 'RESUME';
         isBreakPaused = true;
     } else {
+        isBreakPaused = false;
         startBreakTimer();
         breakPauseBtn.textContent = 'PAUSE';
-        isBreakPaused = false;
     }
 });
 
